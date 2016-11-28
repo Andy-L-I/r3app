@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>vacancies-categories</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list>
+    <ion-list-header color="primary">
+      Вакансии Харькова по рубрикам
+    </ion-list-header>
+    <button ion-item *ngFor="let category of categories">
+      <h2>{{ category.name }}</h2>
+    </button>
+  </ion-list>
+
+</ion-content>

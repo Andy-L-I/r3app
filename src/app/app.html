@@ -1,0 +1,11 @@
+<ion-menu [content]="mycontent">
+  <ion-content>
+    <ion-list>
+      <button ion-item>Поиск резюме</button>
+      <button ion-item>Поиск вакансий</button>
+      <button ion-item>О проекте</button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
