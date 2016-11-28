@@ -17,14 +17,20 @@
 
   <ion-list approxItemHeight="100px">
     <ion-item *ngFor="let vacancy of vacancies" >
-      <h2>{{ vacancy.name }} </h2>
+      <h2>{{ vacancy.name }}<ion-icon *ngIf="vacacncy?.hot" name="flame" color="danger"></ion-icon></h2>
+      <h3>
+        <ion-icon *ngIf="vacacncy?.employer.contactName" name="ribbon" color="secondary"></ion-icon>
+        {{vacacncy?.employer.name}}
+      </h3>
+      <p>{{ vacancy.region.name }}</p>
+      <p>{{ vacancy.published_at | date}}</p>
     </ion-item>
   </ion-list>
 
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"
-      loadingText="Loading more data...">
+      loadingText="Загрузка вакансий...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 

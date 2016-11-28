@@ -15,29 +15,36 @@ import { GetVacanciesListProvider } from '../../providers/get-vacancies-list-pro
 
 export class VacanciesListPage {
   public vacancies = [];
-  rubricId: number;
+  public rubricId: number;
+  public start: number = 1;
+
 
   constructor(
     public navCtrl: NavController,
-    private navParams: NavParams,
+    public navParams: NavParams,
     public getVacanciesList: GetVacanciesListProvider ) {
 
     this.rubricId = navParams.get('id');
 
-
-    getVacanciesList.load(this.rubricId, 0).subscribe(vacancies => {
+    getVacanciesList.load(this.rubricId, 1).subscribe(vacancies => {
       this.vacancies = vacancies;
     })
   }
 
 
   doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
-
+    this.start += 1;
     setTimeout(() => {
-      console.log('Async operation has ended');
+
+      this.getVacanciesList.load(this.rubricId, this.start)
+        .subscribe(vacancies => {
+          for (let vacancy of vacancies) {
+            this.vacancies.push(vacancy)
+          }
+       })
+
       infiniteScroll.complete();
-    }, 500);
+    }, 200);
   }
 
 }

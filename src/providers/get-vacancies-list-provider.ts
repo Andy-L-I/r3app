@@ -10,7 +10,7 @@ export class GetVacanciesListProvider {
   constructor(private http: Http) { }
 
   load(rubricId: number, page: number) {
-    return this.http.get(`${this.apiR3}/vacancies?category_ids=+${rubricId}+&page=+${page}`)
+    return this.http.get(`${this.apiR3}/vacancies?category_ids=+${rubricId}+&page=${page}`)
       .map(res => res.json())
   }
 
