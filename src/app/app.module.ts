@@ -10,7 +10,8 @@ import { VacanciesListPage } from '../pages/vacancies-list/vacancies-list';
 import { TabsPage } from '../pages/tabs/tabs';
 
 //providers
-import { VacanciesSearchProvider} from '../providers/vacancies-search-provider'
+import { VacanciesSearchProvider } from '../providers/vacancies-search-provider';
+import { GetVacanciesListProvider } from '../providers/get-vacancies-list-provider';
 
 
 @NgModule({
@@ -34,6 +35,6 @@ import { VacanciesSearchProvider} from '../providers/vacancies-search-provider'
     VipCompanyListPage,
     TabsPage
   ],
-  providers: [VacanciesSearchProvider]
+  providers: [VacanciesSearchProvider, GetVacanciesListProvider]
 })
 export class AppModule {}

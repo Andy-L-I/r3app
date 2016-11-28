@@ -22,8 +22,8 @@ export class VacanciesCategoriesPage {
 
   }
 
-  goVacanciesList(id: string) {
-    this.navCtrl.push(VacanciesListPage, {id: id});
+  goVacanciesList(id: number) {
+    this.navCtrl.push(VacanciesListPage, {id});
   }
 
 }

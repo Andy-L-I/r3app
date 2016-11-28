@@ -13,6 +13,19 @@
 </ion-header>
 
 
-<ion-content padding>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus dicta doloremque hic molestiae neque obcaecati placeat quos vel veritatis vitae. Amet ducimus eveniet excepturi facere libero praesentium sit suscipit voluptatum.
+<ion-content>
+
+  <ion-list approxItemHeight="100px">
+    <ion-item *ngFor="let vacancy of vacancies" >
+      <h2>{{ vacancy.name }} </h2>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>
