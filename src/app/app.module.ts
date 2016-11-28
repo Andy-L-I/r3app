@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { VacanciesCategoriesPage } from '../pages/vacancies-categories/vacancies-categories';
 import { VacanciesSearchPage } from '../pages/vacancies-search/vacancies-search';
 import { VipCompanyListPage } from '../pages/vip-company-list/vip-company-list';
+import { VacanciesListPage } from '../pages/vacancies-list/vacancies-list';
 import { TabsPage } from '../pages/tabs/tabs';
 
 //providers
@@ -17,6 +18,7 @@ import { VacanciesSearchProvider} from '../providers/vacancies-search-provider'
     MyApp,
     VacanciesCategoriesPage,
     VacanciesSearchPage,
+    VacanciesListPage,
     VipCompanyListPage,
     TabsPage
   ],
@@ -28,6 +30,7 @@ import { VacanciesSearchProvider} from '../providers/vacancies-search-provider'
     MyApp,
     VacanciesCategoriesPage,
     VacanciesSearchPage,
+    VacanciesListPage,
     VipCompanyListPage,
     TabsPage
   ],

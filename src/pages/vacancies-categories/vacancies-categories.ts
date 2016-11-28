@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { VacancyCategory } from '../../models/vacacancies-categoria-model'
+import { VacanciesListPage } from '../vacancies-list/vacancies-list'
 import { VacanciesSearchProvider } from '../../providers/vacancies-search-provider'
 
 @Component({
@@ -16,10 +17,13 @@ export class VacanciesCategoriesPage {
               private vacancySearch: VacanciesSearchProvider) {
 
     vacancySearch.load().subscribe(categories => {
-      console.log(categories);
       this.categories = categories;
     })
 
+  }
+
+  goVacanciesList(id: string) {
+    this.navCtrl.push(VacanciesListPage, {id: id});
   }
 
 }
