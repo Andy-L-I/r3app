@@ -1,7 +1,7 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "rabota kharkov mobile app",
+  "author": "Andy-L-I",
+  "homepage": "https://github.com/Andy-L-I",
   "private": true,
   "scripts": {
     "ionic:build": "ionic-app-scripts build",
