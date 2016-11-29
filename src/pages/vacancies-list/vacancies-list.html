@@ -14,9 +14,18 @@
 
 
 <ion-content>
-
-  <ion-list approxItemHeight="100px">
-    <ion-item *ngFor="let vacancy of vacancies" >
+  <ion-list>
+    <ion-list-header color="dark">
+      {{name}}
+    </ion-list-header>
+    <ion-list-header color="primary"  (click)="showCheckbox()">
+      Все вакансии
+      <ion-icon name="arrow-forward" item-right></ion-icon>
+    </ion-list-header>
+    <!--<ion-list-header color="light" class="sub-ion-list-header">-->
+      <!--Найденно вакансий-->
+    <!--</ion-list-header>-->
+    <ion-item *ngFor="let vacancy of vacancies" (click)="goToVacancyDetails(vacancy.id)">
       <h2>{{ vacancy.name }}<ion-icon *ngIf="vacacncy?.hot" name="flame" color="danger"></ion-icon></h2>
       <h3>
         <ion-icon *ngIf="vacacncy?.employer.contactName" name="ribbon" color="secondary"></ion-icon>

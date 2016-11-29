@@ -7,6 +7,7 @@ import { VacanciesCategoriesPage } from '../pages/vacancies-categories/vacancies
 import { VacanciesSearchPage } from '../pages/vacancies-search/vacancies-search';
 import { VipCompanyListPage } from '../pages/vip-company-list/vip-company-list';
 import { VacanciesListPage } from '../pages/vacancies-list/vacancies-list';
+import { VacancyDetailsPage } from '../pages/vacancy-details/vacancy-details';
 import { TabsPage } from '../pages/tabs/tabs';
 
 //providers
@@ -20,6 +21,7 @@ import { GetVacanciesListProvider } from '../providers/get-vacancies-list-provid
     VacanciesCategoriesPage,
     VacanciesSearchPage,
     VacanciesListPage,
+    VacancyDetailsPage,
     VipCompanyListPage,
     TabsPage
   ],
@@ -32,6 +34,7 @@ import { GetVacanciesListProvider } from '../providers/get-vacancies-list-provid
     VacanciesCategoriesPage,
     VacanciesSearchPage,
     VacanciesListPage,
+    VacancyDetailsPage,
     VipCompanyListPage,
     TabsPage
   ],

@@ -13,7 +13,7 @@
     <ion-list-header color="primary">
       Вакансии Харькова по рубрикам
     </ion-list-header>
-    <button ion-item *ngFor="let category of categories"  (click)="goVacanciesList(category.id)" >
+    <button ion-item *ngFor="let category of categories"  (click)="goVacanciesList(category.id, category.name)" >
       <h2>{{ category.name }}</h2>
     </button>
   </ion-list>

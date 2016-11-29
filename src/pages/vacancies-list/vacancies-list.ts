@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { GetVacanciesListProvider } from '../../providers/get-vacancies-list-provider'
+import { AlertController } from 'ionic-angular';
+
+import { GetVacanciesListProvider } from '../../providers/get-vacancies-list-provider';
+import { VacancyDetailsPage } from '../vacancy-details/vacancy-details';
 
 /*
   Generated class for the VacanciesList page.
@@ -15,18 +18,22 @@ import { GetVacanciesListProvider } from '../../providers/get-vacancies-list-pro
 
 export class VacanciesListPage {
   public vacancies = [];
-  public rubricId: number;
+  public id: number;
+  public name: string;
   public start: number = 1;
 
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public getVacanciesList: GetVacanciesListProvider ) {
+    public getVacanciesList: GetVacanciesListProvider,
+    public alertCtrl: AlertController ) {
 
-    this.rubricId = navParams.get('id');
+    this.id = navParams.get('id');
+    this.name = navParams.get('name');
 
-    getVacanciesList.load(this.rubricId, 1).subscribe(vacancies => {
+
+    getVacanciesList.load(this.id, 1).subscribe(vacancies => {
       this.vacancies = vacancies;
     })
   }
@@ -36,7 +43,7 @@ export class VacanciesListPage {
     this.start += 1;
     setTimeout(() => {
 
-      this.getVacanciesList.load(this.rubricId, this.start)
+      this.getVacanciesList.load(this.id, this.start)
         .subscribe(vacancies => {
           for (let vacancy of vacancies) {
             this.vacancies.push(vacancy)
@@ -46,5 +53,40 @@ export class VacanciesListPage {
       infiniteScroll.complete();
     }, 200);
   }
+
+  //go to vacancy
+  goToVacancyDetails(id: number) {
+    this.navCtrl.push( VacancyDetailsPage, {id: id} );
+  }
+
+  showCheckbox() {
+      let alert = this.alertCtrl.create();
+      alert.setTitle('Which planets have you visited?');
+
+      alert.addInput({
+        type: 'checkbox',
+        label: 'Alderaan',
+        value: 'value1',
+        checked: true
+      });
+
+      alert.addInput({
+        type: 'checkbox',
+        label: 'Bespin',
+        value: 'value2'
+      });
+
+      alert.addButton('Cancel');
+      alert.addButton({
+        text: 'Okay',
+        handler: data => {
+          console.log('Checkbox data:', data);
+          this.testCheckboxOpen = false;
+          this.testCheckboxResult = data;
+        }
+      });
+      alert.present();
+    }
+
 
 }
