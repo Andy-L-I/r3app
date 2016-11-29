@@ -17,10 +17,59 @@
 
   <ion-list>
     <ion-list-header>
-      <h2 padding-top>
-        {{vacancy?.name}}<ion-icon *ngIf="vacacncy?.hot" name="flame" color="danger"></ion-icon>
+      <h2>
+        {{vacancy?.name}}<ion-icon *ngIf="vacancy?.hot" name="flame" color="danger"></ion-icon>
       </h2>
     </ion-list-header>
+
+    <ion-item *ngIf="vacancy?.employer.contactName">
+      <ion-thumbnail item-left  *ngIf="vacancy?.employer?.logo_urls?.view">
+        <img [src]="vacancy?.employer?.logo_urls?.view">
+      </ion-thumbnail>
+      <h3>
+        <ion-icon *ngIf="vacancy?.employer.contactName" name="ribbon" color="secondary"></ion-icon>
+        {{vacancy?.employer.name}}
+      </h3>
+    </ion-item>
+    <ion-item *ngIf="vacancy?.employer.contactName">
+      <ion-icon *ngIf="vacancy?.employer.contactName" name="person" color="dark"></ion-icon>
+      {{vacancy?.employer.contactName}}
+    </ion-item>
+    <ion-item *ngIf="vacancy?.employer.phones.length">
+      <ion-icon *ngIf="vacancy?.employer.phones.length" name="phone-portrait" color="dark"></ion-icon>
+      {{vacancy?.employer.phones}}
+    </ion-item>
+    <ion-item *ngIf="vacancy?.employer.email">
+      <ion-icon *ngIf="vacancy?.employer.email" name="mail" color="dark"></ion-icon>
+      {{vacancy?.employer.email}}
+    </ion-item>
+
+    <ion-list-header>
+      <b>Предлагаемая работа</b>
+    </ion-list-header>
+    <ion-item  *ngIf="vacancy?.name">
+      <b>Должность:</b> {{vacancy?.name}}
+    </ion-item>
+    <ion-item *ngIf="vacancy?.schedule.name">
+      <b>График работы:</b> {{vacancy?.schedule.name}}
+    </ion-item>
+    <ion-item  *ngIf="vacancy?.employment.name">
+      <b>Тип работы:</b> {{vacancy?.employment.name}}
+    </ion-item>
+
+    <ion-list-header>
+      <b>Требования к кандидату</b>
+    </ion-list-header>
+    <ion-item  *ngIf="vacancy?.education.name">
+      <b>Образование:</b> {{vacancy?.education.name}}
+    </ion-item>
+    <ion-item  *ngIf="vacancy?.experience.name">
+      <b>Опыт работы:</b> {{vacancy?.experience.name}}
+    </ion-item>
+    <ion-item  text-nowrap *ngIf="vacancy?.description">
+      <b>Дополнительные сведения:</b> {{vacancy?.description}}
+    </ion-item>
+
   </ion-list>
 
 </ion-content>

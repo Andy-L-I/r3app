@@ -19,22 +19,27 @@
       {{name}}
     </ion-list-header>
     <!--(click)="presentPopover()"-->
-    <ion-list-header color="primary"  (click)="goVacanciesList()">
+
+    <ion-list-header *ngIf="children?.length" color="primary"  (click)="goVacanciesList()">
       Все вакансии
       <ion-icon name="arrow-forward" item-right></ion-icon>
     </ion-list-header>
+
     <!--<ion-list-header color="light" class="sub-ion-list-header">-->
       <!--Найденно вакансий-->
     <!--</ion-list-header>-->
+
     <ion-item *ngFor="let vacancy of vacancies" (click)="goToVacancyDetails(vacancy.id)">
-      <h2>{{ vacancy.name }}<ion-icon *ngIf="vacacncy?.hot" name="flame" color="danger"></ion-icon></h2>
-      <h3>
-        <ion-icon *ngIf="vacacncy?.employer.contactName" name="ribbon" color="secondary"></ion-icon>
-        {{vacacncy?.employer.name}}
-      </h3>
-      <p>{{ vacancy.region.name }}</p>
-      <p>{{ vacancy.published_at | date}}</p>
+        <h2><ion-icon *ngIf="vacancy.hot" name="flame" color="danger"></ion-icon> {{ vacancy.name }}</h2>
+        <h3>
+          <ion-icon *ngIf="vacancy?.employer.verified" name="ribbon" color="secondary"></ion-icon>
+          {{vacancy?.employer.name}}
+        </h3>
+        <p>{{ vacancy.region.name }}</p>
+        <p>{{ vacancy.published_at | date}}</p>
+
     </ion-item>
+
   </ion-list>
 
   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">

@@ -15,6 +15,7 @@ export class VacanciesListPage {
   public id: number;
   public name: string;
   public start: number = 1;
+  public children: string[]
 
 
   constructor(
@@ -25,6 +26,7 @@ export class VacanciesListPage {
 
     this.id = navParams.get('id');
     this.name = navParams.get('name');
+    this.children = navParams.get('children');
 
 
 
@@ -62,7 +64,6 @@ export class VacanciesListPage {
   // }
   goVacanciesList( children: string[]) {
     children = this.navParams.get('children');
-    console.log(children);
     this.navCtrl.push(PopoverPage, {
       children
     });
@@ -87,11 +88,12 @@ export class VacanciesListPage {
         </ion-list-header>
         <ion-list>
           <ion-item *ngFor="let child of children">
+              <p>{{child.id}}</p>
               <ion-label>{{child.name}}</ion-label>
               <ion-checkbox color="secondary" checked="false"></ion-checkbox>
           </ion-item>
         </ion-list>
-        <button ion-button full color="primary" (click)="goSubCategoriesVacanciesList(child.id)">Применить</button>
+        <button ion-button full color="primary">Применить</button>
       </ion-content>
   `
 })
@@ -107,7 +109,7 @@ export class PopoverPage {
       this.children = navParams.get('children');
 
   }
-  goSubCategoriesVacanciesList( id: number ) {
+  goSubCategoriesVacanciesList( id: number[] ) {
     console.log(id)
   }
 

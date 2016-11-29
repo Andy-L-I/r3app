@@ -4,6 +4,7 @@
 export interface Vacancy {
   id: number;
   name: string;
+  children: string[];
   employer: any;
   hot: boolean;
   region: string;
