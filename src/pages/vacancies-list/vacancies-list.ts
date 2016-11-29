@@ -1,16 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
+import { NavController, NavParams, PopoverController  } from 'ionic-angular';
 
 import { GetVacanciesListProvider } from '../../providers/get-vacancies-list-provider';
 import { VacancyDetailsPage } from '../vacancy-details/vacancy-details';
 
-/*
-  Generated class for the VacanciesList page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-vacancies-list',
   templateUrl: 'vacancies-list.html'
@@ -27,10 +21,11 @@ export class VacanciesListPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public getVacanciesList: GetVacanciesListProvider,
-    public alertCtrl: AlertController ) {
+    public popoverCtrl: PopoverController ) {
 
     this.id = navParams.get('id');
     this.name = navParams.get('name');
+
 
 
     getVacanciesList.load(this.id, 1).subscribe(vacancies => {
@@ -59,34 +54,61 @@ export class VacanciesListPage {
     this.navCtrl.push( VacancyDetailsPage, {id: id} );
   }
 
-  showCheckbox() {
-      let alert = this.alertCtrl.create();
-      alert.setTitle('Which planets have you visited?');
+  // presentPopover(myEvent) {
+  //   let popover = this.popoverCtrl.create(PopoverPage);
+  //   popover.present({
+  //     ev: myEvent
+  //   });
+  // }
+  goVacanciesList( children: string[]) {
+    children = this.navParams.get('children');
+    console.log(children);
+    this.navCtrl.push(PopoverPage, {
+      children
+    });
+  }
+}
 
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Alderaan',
-        value: 'value1',
-        checked: true
-      });
 
-      alert.addInput({
-        type: 'checkbox',
-        label: 'Bespin',
-        value: 'value2'
-      });
+@Component({
+  template: `
+      <ion-header>
 
-      alert.addButton('Cancel');
-      alert.addButton({
-        text: 'Okay',
-        handler: data => {
-          console.log('Checkbox data:', data);
-          this.testCheckboxOpen = false;
-          this.testCheckboxResult = data;
-        }
-      });
-      alert.present();
-    }
+        <ion-navbar>
+          <ion-title>Выбрать подкатегорию</ion-title>
+        </ion-navbar>
 
+      </ion-header>
+
+
+      <ion-content>
+        <ion-list-header color="primary">
+          Выбрать подкатегорию
+        </ion-list-header>
+        <ion-list>
+          <ion-item *ngFor="let child of children">
+              <ion-label>{{child.name}}</ion-label>
+              <ion-checkbox color="secondary" checked="false"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+        <button ion-button full color="primary" (click)="goSubCategoriesVacanciesList(child.id)">Применить</button>
+      </ion-content>
+  `
+})
+
+export class PopoverPage {
+
+  public children: string[];
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams) {
+
+      this.children = navParams.get('children');
+
+  }
+  goSubCategoriesVacanciesList( id: number ) {
+    console.log(id)
+  }
 
 }

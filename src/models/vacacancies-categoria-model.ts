@@ -4,5 +4,5 @@
 export interface VacancyCategory {
   id: number;
   name: string;
-  children: number[];
+  children: string[];
 }
