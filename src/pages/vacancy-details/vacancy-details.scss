@@ -1,3 +1,16 @@
 page-vacancy-detailses {
 
 }
+
+.text-full ion-label.label {
+  overflow: initial;
+  white-space: initial;
+}
+
+ion-item ion-thumbnail {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 2px 2px rgb(237, 235, 235) !important;
+}
+

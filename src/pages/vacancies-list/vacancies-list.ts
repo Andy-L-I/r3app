@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, PopoverController  } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { GetVacanciesListProvider } from '../../providers/get-vacancies-list-provider';
 import { VacancyDetailsPage } from '../vacancy-details/vacancy-details';
@@ -21,8 +21,7 @@ export class VacanciesListPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public getVacanciesList: GetVacanciesListProvider,
-    public popoverCtrl: PopoverController ) {
+    public getVacanciesList: GetVacanciesListProvider) {
 
     this.id = navParams.get('id');
     this.name = navParams.get('name');
@@ -56,12 +55,6 @@ export class VacanciesListPage {
     this.navCtrl.push( VacancyDetailsPage, {id: id} );
   }
 
-  // presentPopover(myEvent) {
-  //   let popover = this.popoverCtrl.create(PopoverPage);
-  //   popover.present({
-  //     ev: myEvent
-  //   });
-  // }
   goVacanciesList( children: string[]) {
     children = this.navParams.get('children');
     this.navCtrl.push(PopoverPage, {
@@ -76,7 +69,7 @@ export class VacanciesListPage {
       <ion-header>
 
         <ion-navbar>
-          <ion-title>Выбрать подкатегорию</ion-title>
+          <ion-title>Выбрать подкатегорию:</ion-title>
         </ion-navbar>
 
       </ion-header>
@@ -88,12 +81,11 @@ export class VacanciesListPage {
         </ion-list-header>
         <ion-list>
           <ion-item *ngFor="let child of children">
-              <p>{{child.id}}</p>
-              <ion-label>{{child.name}}</ion-label>
-              <ion-checkbox color="secondary" checked="false"></ion-checkbox>
+              <ion-label>{{child.name}} - {{child.id}}</ion-label>
+              <ion-checkbox color="secondary" checked="false" ></ion-checkbox>
           </ion-item>
         </ion-list>
-        <button ion-button full color="primary">Применить</button>
+        <button ion-button  navPop full color="primary">Применить</button>
       </ion-content>
   `
 })
@@ -109,8 +101,10 @@ export class PopoverPage {
       this.children = navParams.get('children');
 
   }
-  goSubCategoriesVacanciesList( id: number[] ) {
-    console.log(id)
+  goSubCategoriesVacanciesList() {
+   // let checkedSubRubrics : number[] = []
+
   }
+
 
 }

@@ -3,12 +3,18 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 //pages
+//vacancies
 import { VacanciesCategoriesPage } from '../pages/vacancies-categories/vacancies-categories';
 import { VacanciesSearchPage } from '../pages/vacancies-search/vacancies-search';
 import { VipCompanyListPage } from '../pages/vip-company-list/vip-company-list';
 import { VacanciesListPage } from '../pages/vacancies-list/vacancies-list';
 import { PopoverPage } from '../pages/vacancies-list/vacancies-list';
 import { VacancyDetailsPage } from '../pages/vacancy-details/vacancy-details';
+
+//resumes
+import { ResumesCategoriesPage } from '../pages/resumes-categories/resumes-categories';
+
+//layout
 import { TabsPage } from '../pages/tabs/tabs';
 
 //providers
@@ -24,6 +30,7 @@ import { GetVacanciesListProvider } from '../providers/get-vacancies-list-provid
     VacanciesListPage,
     VacancyDetailsPage,
     VipCompanyListPage,
+    ResumesCategoriesPage,
     PopoverPage,
     TabsPage
   ],
@@ -38,6 +45,7 @@ import { GetVacanciesListProvider } from '../providers/get-vacancies-list-provid
     VacanciesListPage,
     VacancyDetailsPage,
     VipCompanyListPage,
+    ResumesCategoriesPage,
     PopoverPage,
     TabsPage
   ],
