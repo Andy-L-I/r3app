@@ -20,6 +20,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 //providers
 import { VacanciesSearchProvider } from '../providers/vacancies-search-provider';
 import { GetVacanciesListProvider } from '../providers/get-vacancies-list-provider';
+import { ResumesSearchProvider } from '../providers/resumes-search-provider';
 
 
 @NgModule({
@@ -49,6 +50,6 @@ import { GetVacanciesListProvider } from '../providers/get-vacancies-list-provid
     PopoverPage,
     TabsPage
   ],
-  providers: [VacanciesSearchProvider, GetVacanciesListProvider]
+  providers: [VacanciesSearchProvider, GetVacanciesListProvider, ResumesSearchProvider]
 })
 export class AppModule {}

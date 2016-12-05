@@ -14,11 +14,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  public menu: MenuController;
   rootPage = TabsPage;
   pages: Array<{title: string, component: any}>;
 
-  constructor(platform: Platform ) {
+  constructor(platform: Platform,  public menu: MenuController ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -27,8 +26,8 @@ export class MyApp {
     });
 
     this.pages = [
-      { title: 'vacancy', component: VacanciesCategoriesPage },
-      { title: 'resume', component: ResumesCategoriesPage }
+      { title: 'Соискателю', component: VacanciesCategoriesPage },
+      { title: 'Работодателю', component: ResumesCategoriesPage }
     ];
   }
 

@@ -7,7 +7,8 @@ import { Category } from '../models/vacacancies-categoria-model'
 
 @Injectable()
 
-export class VacanciesSearchProvider {
+export class ResumesSearchProvider {
+
   apiR3 = 'http://api.rabota.kharkov.ua';
 
 
@@ -16,7 +17,7 @@ export class VacanciesSearchProvider {
   // Load all r3 vacancy сategories
 
   load(): Observable<Category[]> {
-    return this.http.get(`${this.apiR3}/vacancies/categories`)
+    return this.http.get(`${this.apiR3}/resumes/categories`)
       .map(res => <Category[]>res.json());
   }
 

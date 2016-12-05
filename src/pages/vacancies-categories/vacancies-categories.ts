@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { VacancyCategory } from '../../models/vacacancies-categoria-model'
+import { Category } from '../../models/vacacancies-categoria-model'
 import { VacanciesListPage } from '../vacancies-list/vacancies-list'
 import { VacanciesSearchProvider } from '../../providers/vacancies-search-provider'
 
@@ -11,7 +11,7 @@ import { VacanciesSearchProvider } from '../../providers/vacancies-search-provid
 })
 export class VacanciesCategoriesPage {
 
-  categories: VacancyCategory[]
+  categories: Category[]
 
   constructor(public navCtrl: NavController,
               private vacancySearch: VacanciesSearchProvider) {

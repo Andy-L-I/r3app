@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { Category } from '../../models/vacacancies-categoria-model';
+import { ResumesSearchProvider } from '../../providers/resumes-search-provider';
+
 /*
   Generated class for the ResumesCategories page.
 
@@ -13,10 +16,15 @@ import { NavController } from 'ionic-angular';
 })
 export class ResumesCategoriesPage {
 
-  constructor(public navCtrl: NavController) {}
+  categories: Category[]
 
-  ionViewDidLoad() {
-    console.log('Hello ResumesCategoriesPage Page');
+  constructor( public navCtrl: NavController,
+               private resumeSearch: ResumesSearchProvider ) {
+
+    resumeSearch.load().subscribe(categories => {
+      this.categories = categories;
+    })
+
   }
 
 }
