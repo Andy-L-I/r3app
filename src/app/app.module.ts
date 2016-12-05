@@ -16,6 +16,7 @@ import { ResumesCategoriesPage } from '../pages/resumes-categories/resumes-categ
 
 //layout
 import { TabsPage } from '../pages/tabs/tabs';
+import { TabsAdditionalPage } from '../pages/tabs-additional/tabs-additional';
 
 //providers
 import { VacanciesSearchProvider } from '../providers/vacancies-search-provider';
@@ -33,7 +34,8 @@ import { ResumesSearchProvider } from '../providers/resumes-search-provider';
     VipCompanyListPage,
     ResumesCategoriesPage,
     PopoverPage,
-    TabsPage
+    TabsPage,
+    TabsAdditionalPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -48,7 +50,8 @@ import { ResumesSearchProvider } from '../providers/resumes-search-provider';
     VipCompanyListPage,
     ResumesCategoriesPage,
     PopoverPage,
-    TabsPage
+    TabsPage,
+    TabsAdditionalPage
   ],
   providers: [VacanciesSearchProvider, GetVacanciesListProvider, ResumesSearchProvider]
 })

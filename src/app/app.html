@@ -1,8 +1,11 @@
 <ion-menu [content]="mycontent">
   <ion-content>
     <ion-list>
-      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+      <button ion-item  (click)="setRoot(rootPage)">
+        Работодателю
+      </button>
+      <button ion-item  (click)="setRoot(rootAddPage)">
+        Соискателю
       </button>
     </ion-list>
   </ion-content>
