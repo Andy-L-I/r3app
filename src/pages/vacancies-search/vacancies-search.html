@@ -7,12 +7,40 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>vacancies-search</ion-title>
+
+    <button ion-button menuToggle="left">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span color="primary">Работа</span> в Харькове</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+ <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+ 
+  <ion-item>
+    <ion-label>Выбор рубрики</ion-label>
+    <ion-select [(ngModel)]="category" okText="Применить" cancelText="Отменить">
+      <ion-option *ngFor="let category of categories">{{ category.name }}</ion-option>
+    </ion-select>
+  </ion-item>
 
+  <ion-item>
+    <ion-label>Выбор подрубрики</ion-label>
+    <ion-select [(ngModel)]="category" okText="Применить" cancelText="Отменить">
+      <ion-option *ngFor="let category of categories">{{ category.name }}</ion-option>
+    </ion-select>
+  </ion-item>
+  
+	<ion-item>
+    <ion-label>метро</ion-label>
+    <ion-select [(ngModel)]="category" okText="Применить" cancelText="Отменить">
+      <ion-option *ngFor="let category of categories">{{ category.name }}</ion-option>
+    </ion-select>
+  </ion-item>
+  
+  <button ion-button full>Показать</button>
+  
 </ion-content>
